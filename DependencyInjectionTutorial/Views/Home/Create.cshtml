@@ -1,0 +1,37 @@
+﻿@model Book
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h3>Tracker</h3>
+    @ViewData["Tracks"]
+    <h3>Total Pages</h3>
+    @ViewData["PageCount"]
+    <h1>Add Book</h1>
+
+    <form asp-action="Create" asp-controller="Home" method="post">
+        <input type="hidden" asp-for="Id" />
+        <label asp-for="Title"></label>
+        <input asp-for="Title" />
+        <br />
+        <label asp-for="Author"></label>
+        <input asp-for="Author" />
+        <br />
+        <label asp-for="PublishDate"></label>
+        <input asp-for="PublishDate" />
+        <br />
+        <label asp-for="PageLength"></label>
+        <input asp-for="PageLength" />
+        <br />
+        <input type="submit" value="Add Book" />
+    </form>
+</body>
+</html> 

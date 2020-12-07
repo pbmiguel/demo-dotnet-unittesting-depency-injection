@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Book>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h3>Tracker</h3>
+    @ViewData["tracks"]
+    <h3>Total Pages</h3>
+    @ViewData["PageCount"]
+    <h1>Book List</h1>
+    <table border="true">
+        <thead style="font-weight:bold">
+        <th>Title</th>
+        <th>Author</th>
+        <th>Publish Date</th>
+        <th>Pages</th>
+        </thead>
+        <tbody>
+            @foreach (Book b in Model)
+            {
+                <tr>
+                    <td>@b.Title</td>
+                    <td>@b.Author</td>
+                    <td>@b.PublishDate.ToString()</td>
+                    <td>@b.PageLength</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-action="Create">Add</a>
+</body>
+</html>
